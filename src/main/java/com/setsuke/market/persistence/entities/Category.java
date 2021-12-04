@@ -1,6 +1,7 @@
 package com.setsuke.market.persistence.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "categorias")
@@ -12,6 +13,9 @@ public class Category {
 
     private String descripcion;
     private Boolean estado;
+
+    @OneToMany(mappedBy = "categoria")
+    private List<Product> productos;
 
     public Integer getIdCategoria() {
         return idCategoria;
